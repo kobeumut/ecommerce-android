@@ -19,6 +19,15 @@
         android:label="Cart" />
 
     <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.eteration.ecommerce.presentation.ui.favorites.FavoritesFragment"
+        android:label="Favorites" >
+    <action
+        android:id="@+id/action_fav_to_detail"
+        app:destination="@id/navigation_detail" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_detail"
         android:name="com.eteration.ecommerce.presentation.ui.detail.ProductDetailFragment"
         android:label="Product Detail">
