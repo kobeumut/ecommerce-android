@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eteration Ecommerce</string>
+    <string name="app_name">E-Market</string>
     <string name="home">Home</string>
     <string name="cart">Cart</string>
     <string name="favorites">Favorites</string>
     <string name="search">Search</string>
-    <string name="filter">Filter</string>
+    <string name="filter">Filters:</string>
+    <string name="select_filter">Select Filter</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="complete">Complete</string>
     <string name="total">Total</string>
@@ -26,4 +27,5 @@
     <string name="model_11">11</string>
     <string name="model_12_pro">12 Pro</string>
     <string name="model_13_pro_max">13 Pro Max</string>
+    <string name="price">Price:</string>
 </resources>
