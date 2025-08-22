@@ -15,13 +15,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.eteration.ecommerce.BuildConfig
 import com.eteration.ecommerce.R
 import com.eteration.ecommerce.di.AppContainer
 import com.eteration.ecommerce.domain.model.Product
+import com.eteration.ecommerce.presentation.ui.filter.FilterBottomSheet
 import com.eteration.ecommerce.presentation.utils.ViewState
 import com.eteration.ecommerce.presentation.utils.gone
 import com.eteration.ecommerce.presentation.utils.showToast
 import com.eteration.ecommerce.presentation.utils.visible
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * Fragment for displaying product listing
@@ -54,6 +57,7 @@ class HomeFragment : Fragment() {
         setupViewModel()
         setupRecyclerView()
         setupSearchBar()
+        setupFilterButton()
         observeViewModel()
     }
 
@@ -73,7 +77,10 @@ class HomeFragment : Fragment() {
             override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
                 return HomeViewModel(
-                    appContainer.getProductsUseCase
+                    appContainer.getProductsUseCase,
+                    appContainer.addToCartUseCase,
+                    appContainer.toggleFavoriteUseCase,
+                    appContainer.favoriteRepository
                 ) as T
             }
         })[HomeViewModel::class.java]
@@ -83,6 +90,12 @@ class HomeFragment : Fragment() {
         productAdapter = ProductAdapter(
             onItemClick = { product ->
                 navigateToDetail(product)
+            },
+            onAddToCart = { product ->
+                viewModel.addToCart(product)
+            },
+            onFavoriteClick = { product ->
+                viewModel.toggleFavorite(product)
             }
         )
 
@@ -120,6 +133,20 @@ class HomeFragment : Fragment() {
         })
     }
 
+    private fun setupFilterButton() {
+        filterButton.setOnClickListener {
+            val filterBottomSheet = FilterBottomSheet()
+            filterBottomSheet.setOnFilterAppliedListener { filter ->
+                viewModel.applyFilter(filter)
+                if(BuildConfig.DEBUG) {
+                    //Debug edilerek kontrol edildi. Bu uyarı sadece debug olarak derlendiğinde gelmektedir.
+                    Snackbar.make(requireContext(), requireView(), "Servisten Brand ve name farklı gelebiliyor. Mesela brand:Honda ama name:Aston Martin.", Snackbar.LENGTH_LONG).show()
+                }
+            }
+            filterBottomSheet.show(childFragmentManager, "FilterBottomSheet")
+        }
+    }
+
     private fun observeViewModel() {
         viewModel.productsState.observe(viewLifecycleOwner) { state ->
             when (state) {
@@ -151,7 +178,14 @@ class HomeFragment : Fragment() {
                 }
             }
         }
-        
+
+        viewModel.favoriteIds.observe(viewLifecycleOwner) { ids ->
+            productAdapter.updateFavorites(ids)
+        }
+
+        viewModel.cartAddedEvent.observe(viewLifecycleOwner) { message ->
+            showToast(message)
+        }
     }
 
     private fun navigateToDetail(product: Product) {
