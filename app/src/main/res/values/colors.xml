@@ -4,6 +4,7 @@
     <color name="white">#FFFFFF</color>
     <color name="light_gray">#F5F5F5</color>
     <color name="monochrome50">#626b8b</color>
+    <color name="badge_color">#F90000</color>
     <color name="gray">#D9D9D9</color>
     <color name="black">#000000</color>
     <color name="yellow">#FFC107</color>

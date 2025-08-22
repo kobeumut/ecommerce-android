@@ -23,6 +23,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconSize="@dimen/bottom_nav_icon_size"
+        app:badgeStyle="@style/CustomBadgeStyle"
         app:menu="@menu/bottom_navigation_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

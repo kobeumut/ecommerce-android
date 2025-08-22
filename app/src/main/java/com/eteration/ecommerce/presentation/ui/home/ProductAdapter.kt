@@ -54,9 +54,10 @@ class ProductAdapter(
             // Update favorite icon
             val isFavorite = favoriteIds.contains(product.id)
             favoriteIcon.setImageResource(
-                if (isFavorite) R.drawable.ic_star_filled
-                else R.drawable.ic_star_outline
+                R.drawable.ic_star_filled
             )
+            favoriteIcon.imageTintList = if (isFavorite)  nameText.context.getColorStateList(R.color.yellow)
+            else nameText.context.getColorStateList(R.color.gray)
 
             // Click listeners
             itemView.setOnClickListener {

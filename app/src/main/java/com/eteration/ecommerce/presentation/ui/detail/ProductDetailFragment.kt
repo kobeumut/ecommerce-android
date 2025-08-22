@@ -109,12 +109,13 @@ class ProductDetailFragment : Fragment() {
     }
 
     private fun observeViewModel() {
+        favoriteIcon.setImageResource(R.drawable.ic_star_filled)
         viewModel.isFavorite.observe(viewLifecycleOwner) { isFavorite ->
             if (isFavorite) {
-                favoriteIcon.setImageResource(R.drawable.ic_star_filled)
+                favoriteIcon.imageTintList = requireContext().getColorStateList(R.color.yellow)
                 favoriteIcon.visible()
             } else {
-                favoriteIcon.setImageResource(R.drawable.ic_star_outline)
+                favoriteIcon.imageTintList = requireContext().getColorStateList(R.color.gray)
                 favoriteIcon.visible()
             }
         }

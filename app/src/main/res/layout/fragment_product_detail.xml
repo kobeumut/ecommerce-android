@@ -87,7 +87,7 @@
                     android:layout_gravity="top|end"
                     android:layout_margin="8dp"
                     android:src="@drawable/ic_star_outline"
-                    app:tint="@color/yellow" />
+                     />
 
             </FrameLayout>
 

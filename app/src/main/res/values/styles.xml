@@ -17,10 +17,35 @@
         <item name="buttonStyle">@style/Widget.App.Button</item>
         <item name="fontFamily">@font/main</item>
         <item name="android:includeFontPadding">false</item>
+        <item name="radioButtonStyle">@style/Widget.App.Radio</item>
+        <item name="checkboxStyle">@style/Widget.App.CheckBox</item>
+        <item name="badgeStyle">@style/CustomBadgeStyle</item>
+
+    </style>
+    <style name="CustomBadgeStyle" parent="@style/Widget.MaterialComponents.Badge">
+        <item name="badgeRadius">10dp</item>
+        <item name="badgeWithTextRadius">12dp</item>
+        <item name="badgeTextAppearance">@style/CustomBadgeTextAppearance</item>
+        <item name="backgroundColor">@color/badge_color</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="verticalOffset">11dp</item>
+        <item name="horizontalOffset">6dp</item>
+    </style>
+
+    <style name="CustomBadgeTextAppearance" parent="@style/TextAppearance.MaterialComponents.Badge">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
     <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@color/primary_blue</item>
         <item name="android:backgroundTint">@color/primary_blue</item>
+    </style>
+    <style name="Widget.App.Radio" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/primary_blue</item>
+    </style>
+    <style name="Widget.App.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/primary_blue</item>
     </style>
 </resources>
