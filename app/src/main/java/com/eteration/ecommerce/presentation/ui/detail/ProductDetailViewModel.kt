@@ -44,4 +44,13 @@ class ProductDetailViewModel(
             _isFavorite.postValue(!(_isFavorite.value ?: false))
         }
     }
+
+    fun setNameForLength(text: String, maxLength: Int = 20): String{
+        val name = if (text.length > maxLength) {
+            "${text.take(maxLength)}..."
+        } else {
+            text
+        }
+        return name
+    }
 }

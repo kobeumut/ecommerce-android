@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:padding="2dp">
+
+    <!-- Product Name -->
+    <TextView
+        android:id="@+id/product_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/quantity_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Samsung S22" />
+
+    <!-- Product Price -->
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="12.000 ₺"
+        android:textColor="@color/primary_blue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_name" />
+
+    <!-- Quantity Controls Container -->
+    <LinearLayout
+        android:id="@+id/quantity_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Decrease Button -->
+        <Button
+            android:id="@+id/btn_decrease"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:backgroundTint="@color/light_gray"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:text="@string/minus"
+            android:textColor="@color/monochrome50"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Quantity Text -->
+        <TextView
+            android:id="@+id/quantity_text"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="@color/primary_blue"
+            android:gravity="center"
+            android:paddingVertical="8dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:text="2" />
+
+        <!-- Increase Button -->
+        <Button
+            android:id="@+id/btn_increase"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:backgroundTint="@color/light_gray"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:text="@string/plus"
+            android:textColor="@color/monochrome50"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,10 +10,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
 import com.eteration.ecommerce.R
 import com.eteration.ecommerce.di.AppContainer
-import com.eteration.ecommerce.presentation.utils.gone
 import com.eteration.ecommerce.presentation.utils.loadImage
 import com.eteration.ecommerce.presentation.utils.visible
 
@@ -83,12 +81,8 @@ class ProductDetailFragment : Fragment() {
     private fun bindProductData() {
         val product = args.product
         productImage.loadImage(product.image)
-        val maxNameLength = 60
-        val name = if (product.name.length > maxNameLength) {
-            "${product.name.take(maxNameLength)}..."
-        } else {
-            product.name
-        }
+
+        val name = viewModel.setNameForLength(text = product.name)
         productName.text = name
         productTitle.text = name
 

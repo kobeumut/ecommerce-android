@@ -13,7 +13,10 @@
             app:destination="@id/navigation_detail" />
     </fragment>
 
-
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.eteration.ecommerce.presentation.ui.cart.CartFragment"
+        android:label="Cart" />
 
     <fragment
         android:id="@+id/navigation_detail"

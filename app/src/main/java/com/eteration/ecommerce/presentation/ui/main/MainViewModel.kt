@@ -12,4 +12,5 @@ class MainViewModel(
     cartRepository: CartRepository
 ) : ViewModel() {
 
+    val cartItemCount: LiveData<Int> = cartRepository.getCartItemCount().asLiveData()
 }

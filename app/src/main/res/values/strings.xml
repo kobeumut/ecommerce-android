@@ -28,4 +28,6 @@
     <string name="model_12_pro">12 Pro</string>
     <string name="model_13_pro_max">13 Pro Max</string>
     <string name="price">Price:</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 </resources>

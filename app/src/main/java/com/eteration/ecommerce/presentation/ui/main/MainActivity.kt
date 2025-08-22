@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  * Main activity with bottom navigation
  */
 class MainActivity : AppCompatActivity() {
-
+    private var cartBadge: BadgeDrawable? = null
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var viewModel: MainViewModel
 
@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         setupViewModel()
         setupBottomNavigation()
+        observeCartCount()
     }
 
     private fun setupViewModel() {
@@ -46,7 +47,19 @@ class MainActivity : AppCompatActivity() {
 
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
+        // Create badge for cart
+        cartBadge = bottomNavigationView.getOrCreateBadge(R.id.navigation_cart)
+        cartBadge?.isVisible = false
     }
 
-
+    private fun observeCartCount() {
+        viewModel.cartItemCount.observe(this) { count ->
+            if (count > 0) {
+                cartBadge?.isVisible = true
+                cartBadge?.number = count
+            } else {
+                cartBadge?.isVisible = false
+            }
+        }
+    }
 }
