@@ -17,10 +17,13 @@ import com.eteration.ecommerce.presentation.utils.loadImage
  * RecyclerView adapter for displaying products
  */
 class ProductAdapter(
-    private val onItemClick: (Product) -> Unit
+    private val onItemClick: (Product) -> Unit,
+    private val onAddToCart: (Product) -> Unit,
+    private val onFavoriteClick: (Product) -> Unit
 ) : ListAdapter<Product, ProductAdapter.ProductViewHolder>(ProductDiffCallback()) {
 
-    //TODO: Add favorite logic
+    private var favoriteIds: List<String> = emptyList()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_product, parent, false)
@@ -29,6 +32,11 @@ class ProductAdapter(
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         holder.bind(getItem(position))
+    }
+
+    fun updateFavorites(ids: List<String>) {
+        favoriteIds = ids
+        notifyDataSetChanged()
     }
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -44,8 +52,10 @@ class ProductAdapter(
             imageView.loadImage(product.image)
 
             // Update favorite icon
+            val isFavorite = favoriteIds.contains(product.id)
             favoriteIcon.setImageResource(
-                R.drawable.ic_star_outline
+                if (isFavorite) R.drawable.ic_star_filled
+                else R.drawable.ic_star_outline
             )
 
             // Click listeners
@@ -53,6 +63,13 @@ class ProductAdapter(
                 onItemClick(product)
             }
 
+            addToCartButton.setOnClickListener {
+                onAddToCart(product)
+            }
+
+            favoriteIcon.setOnClickListener {
+                onFavoriteClick(product)
+            }
         }
     }
 

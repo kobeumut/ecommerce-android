@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Header -->
+        <ImageView
+            android:id="@+id/close_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/filter"
+            android:textSize="18sp"
+            android:layout_marginEnd="24dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="@+id/close_button"
+            app:layout_constraintBottom_toBottomOf="@+id/close_button"
+            app:layout_constraintStart_toEndOf="@+id/close_button"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Sort By Section -->
+        <TextView
+            android:id="@+id/sort_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_by"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/sort_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/sort_label">
+
+            <RadioButton
+                android:id="@+id/sort_old_to_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/old_to_new"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/sort_new_to_old"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/new_to_old" />
+
+            <RadioButton
+                android:id="@+id/sort_price_high_to_low"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/price_high_to_low" />
+
+            <RadioButton
+                android:id="@+id/sort_price_low_to_high"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/price_low_to_high" />
+
+        </RadioGroup>
+
+        <!-- Brand Section -->
+        <TextView
+            android:id="@+id/brand_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/brand"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/sort_group"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/brand_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:background="@drawable/search_background"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/brand_label" />
+
+        <LinearLayout
+            android:id="@+id/brand_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/brand_search">
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/brand_apple"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/apple" />-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/brand_samsung"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/samsung" />-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/brand_huawei"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/huawei" />-->
+
+        </LinearLayout>
+
+        <!-- Model Section -->
+        <TextView
+            android:id="@+id/model_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/model"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/brand_list"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/model_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:background="@drawable/search_background"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/model_label" />
+
+        <LinearLayout
+            android:id="@+id/model_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/model_search">
+
+        </LinearLayout>
+
+        <!-- Apply Button -->
+        <Button
+            android:id="@+id/apply_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/filter"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/primary_blue"
+            app:layout_constraintTop_toBottomOf="@+id/model_list"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
