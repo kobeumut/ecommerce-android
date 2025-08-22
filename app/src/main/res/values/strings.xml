@@ -1,3 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eteration</string>
+    <string name="app_name">Eteration Ecommerce</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="favorites">Favorites</string>
+    <string name="search">Search</string>
+    <string name="filter">Filter</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="complete">Complete</string>
+    <string name="total">Total</string>
+    <string name="empty_cart">Your cart is empty</string>
+    <string name="empty_favorites">No favorite products</string>
+    <string name="empty_products">No products found</string>
+    <string name="error_loading">Error loading products</string>
+    <string name="sort_by">Sort By</string>
+    <string name="brand">Brand</string>
+    <string name="model">Model</string>
+    <string name="old_to_new">Old to new</string>
+    <string name="new_to_old">New to old</string>
+    <string name="price_high_to_low">Price high to low</string>
+    <string name="price_low_to_high">Price low to High</string>
+    <string name="apple">Apple</string>
+    <string name="samsung">Samsung</string>
+    <string name="huawei">Huawei</string>
+    <string name="model_11">11</string>
+    <string name="model_12_pro">12 Pro</string>
+    <string name="model_13_pro_max">13 Pro Max</string>
 </resources>
