@@ -22,12 +22,14 @@ app/src/main/java/com/eteration/ecommerce/
 │   ├── remote/ (Retrofit API, models)  
 │   ├── mapper/ (Data to domain mappers)  
 │   └── repository/ (Repository implementations)  
+├── di/ (Dependency Injection with AppContainer)
 ├── domain/  
 │   ├── model/ (Product, CartItem, Filter)  
 │   ├── repository/ (Repository interfaces)  
 │   └── usecase/ (Business logic)  
 └── presentation/  
- ├── ui/ (Fragments, ViewModels, Adapters) └── utils/ (Extensions, ViewState)
+    ├── ui/ (Fragments, ViewModels, Adapters)
+    └── utils/ (Extensions, ViewState)
  ```  
 
 ## Design Patterns Used
