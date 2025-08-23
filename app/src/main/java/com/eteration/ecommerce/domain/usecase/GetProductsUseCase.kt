@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flow
 class GetProductsUseCase(
     private val productRepository: ProductRepository
 ) {
-    suspend operator fun invoke(
+    operator fun invoke(
         searchQuery: String = "",
         filter: Filter = Filter()
     ): Flow<Result<List<Product>>> = flow {
